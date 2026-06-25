@@ -105,6 +105,7 @@
 
     .toolbar {
       justify-content: flex-end;
+      justify-self: end;
     }
 
     .install-hint {
@@ -663,6 +664,7 @@
       }
 
       .topbar {
+        grid-template-columns: minmax(240px, 32%) minmax(0, 1fr);
         padding: 8px 10px;
         gap: 8px;
       }
@@ -685,7 +687,19 @@
       .toolbar {
         overflow-x: auto;
         justify-content: flex-end;
+        justify-self: stretch;
         padding-bottom: 2px;
+      }
+
+      .toolbar button,
+      .toolbar .btn,
+      .toolbar .select,
+      .toolbar label,
+      .account button,
+      .account .select,
+      .account label {
+        white-space: nowrap;
+        flex-shrink: 0;
       }
 
       button,
@@ -937,15 +951,22 @@
       <div class="summary-cards" id="summaryCards"></div>
     </aside>
 
-    <div class="foot">本地数据存储在浏览器中（localStorage），导入导出可做备份与跨设备迁移。</div>
+    <div class="foot">本地数据存储在浏览器中（localStorage），导入导出可做备份与跨设备迁移。<span id="appVersion" style="margin-left:10px;font-weight:bold;color:#5e4d3f;"></span></div>
   </div>
 
   <script>
     (function () {
+      var APP_VERSION = "v2026.06.25-01";
       var STORAGE_KEY = "daily_history_single_file_v1";
       var HANDLE_DB_NAME = "daily_history_handles_v1";
       var HANDLE_STORE_NAME = "handles";
       var HANDLE_EXPORT_DIR_KEY = "exportDir";
+
+      function renderVersion() {
+        var el = document.getElementById("appVersion");
+        if (!el) return;
+        el.textContent = "当前版本：" + APP_VERSION;
+      }
 
       function uid() {
         return "id_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
@@ -1909,6 +1930,7 @@
 
       bindEvents();
       renderAll();
+      renderVersion();
       registerServiceWorker();
       loadExportDirHandle().then(function (handle) {
         ui.exportDirHandle = handle;
