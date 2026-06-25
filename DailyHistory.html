@@ -652,7 +652,47 @@
       }
 
       .month-head {
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: auto 1fr auto auto;
+      }
+    }
+
+    @media (orientation: landscape) and (max-width: 1200px) {
+      .topbar {
+        grid-template-columns: 1fr auto;
+      }
+
+      .toolbar {
+        justify-content: flex-end;
+      }
+
+      .install-hint {
+        text-align: right;
+      }
+
+      .layout {
+        grid-template-columns: minmax(320px, 40vw) 1fr;
+      }
+
+      .zones {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+          "red black"
+          "green green";
+      }
+
+      .zone.red,
+      .zone.black {
+        min-height: 52vh;
+      }
+
+      .zone.green {
+        min-height: 26vh;
+      }
+
+      .side-controls {
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
       }
     }
 
@@ -662,11 +702,7 @@
       }
 
       .layout {
-        grid-template-columns: 320px 1fr;
-      }
-
-      .zones {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: minmax(300px, 42vw) 1fr;
       }
     }
   </style>
