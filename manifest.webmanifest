@@ -1,0 +1,21 @@
+{
+  "id": "./",
+  "name": "成长日历记录",
+  "short_name": "成长日历",
+  "description": "记录孩子每天的积极表现、待改进事项和中性事件，配合必做提醒完成每日复盘。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4efe2",
+  "theme_color": "#c66b3d",
+  "orientation": "portrait-primary",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "./icons/icon-app.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
