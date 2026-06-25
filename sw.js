@@ -1,4 +1,4 @@
-const CACHE_NAME = 'daily-history-pwa-v1';
+const CACHE_NAME = 'daily-history-pwa-v2';
 const APP_ASSETS = [
   './',
   './index.html',
@@ -27,6 +27,26 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') {
+    return;
+  }
+
+  const url = new URL(event.request.url);
+  const isHtmlRequest = event.request.mode === 'navigate' ||
+    (event.request.headers.get('accept') || '').includes('text/html') ||
+    url.pathname.endsWith('.html') ||
+    url.pathname === '/' ||
+    url.pathname.endsWith('/');
+
+  if (isHtmlRequest) {
+    event.respondWith(
+      fetch(event.request).then((response) => {
+        if (response && response.status === 200) {
+          const cloned = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, cloned));
+        }
+        return response;
+      }).catch(() => caches.match(event.request).then((cached) => cached || caches.match('./DailyHistory.html')))
+    );
     return;
   }
 
