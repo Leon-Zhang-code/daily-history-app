@@ -656,6 +656,106 @@
       }
     }
 
+    @media (orientation: landscape) and (max-width: 1400px) {
+      .app {
+        padding: 10px;
+        gap: 8px;
+      }
+
+      .topbar {
+        padding: 8px 10px;
+        gap: 8px;
+      }
+
+      .brand h1 {
+        font-size: 34px;
+        line-height: 1;
+      }
+
+      .muted {
+        font-size: 12px;
+      }
+
+      .toolbar,
+      .account {
+        gap: 6px;
+        flex-wrap: nowrap;
+      }
+
+      .toolbar {
+        overflow-x: auto;
+        justify-content: flex-end;
+        padding-bottom: 2px;
+      }
+
+      button,
+      .btn,
+      .select,
+      .field,
+      .text-input {
+        min-height: 32px;
+        padding: 5px 8px;
+        font-size: 13px;
+      }
+
+      .layout {
+        grid-template-columns: minmax(250px, 32vw) minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .panel {
+        padding: 10px;
+      }
+
+      .month-head {
+        gap: 6px;
+      }
+
+      .month-title {
+        font-size: 18px;
+      }
+
+      .weekday div {
+        font-size: 11px;
+      }
+
+      .day {
+        min-height: 44px;
+        padding: 4px;
+      }
+
+      .day-num {
+        font-size: 11px;
+      }
+
+      #taskList {
+        min-height: 220px;
+      }
+
+      .task-list,
+      .entry-list {
+        max-height: 300px;
+      }
+
+      .zones {
+        gap: 8px;
+      }
+
+      .zone.red,
+      .zone.black {
+        min-height: 46vh;
+      }
+
+      .zone.green {
+        min-height: 22vh;
+      }
+
+      .entry-line,
+      .task-line {
+        gap: 6px;
+      }
+    }
+
     @media (orientation: landscape) and (max-width: 1200px) {
       .app {
         padding-right: 72px;
