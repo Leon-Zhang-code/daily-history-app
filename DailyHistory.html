@@ -657,6 +657,10 @@
     }
 
     @media (orientation: landscape) and (max-width: 1200px) {
+      .app {
+        padding-right: 72px;
+      }
+
       .topbar {
         grid-template-columns: 1fr auto;
       }
@@ -670,7 +674,7 @@
       }
 
       .layout {
-        grid-template-columns: minmax(320px, 40vw) 1fr;
+        grid-template-columns: minmax(280px, 34vw) 1fr;
       }
 
       .zones {
@@ -690,9 +694,17 @@
       }
 
       .side-controls {
-        top: 50%;
-        bottom: auto;
-        transform: translateY(-50%);
+        top: auto;
+        bottom: 14px;
+        transform: none;
+        right: 10px;
+      }
+
+      .side-fab {
+        writing-mode: horizontal-tb;
+        min-height: auto;
+        min-width: auto;
+        padding: 8px 12px;
       }
     }
 
